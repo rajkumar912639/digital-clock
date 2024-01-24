@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Digital Clock</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .clock-container {
+            text-align: center;
+        }
+        
+        .clock {
+            font-family: 'Arial', sans-serif;
+            font-size: 2em;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #a{
+            text-align:center;
+            background-color: aqua;
+            font-weight: 200;
+            border-color: black;
+            border-radius: 2px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="a">
+        <h1>Digital Clock</h1>
+    </div>
+    <div class="clock-container">
+        <div class="clock">
+            <div id="time">12:00:00</div>
+        </div>
+    </div>
+    <script >
+        function updateClock() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+        
+            // Add leading zeros if necessary
+            hours = (hours < 10) ? '0' + hours : hours;
+            minutes = (minutes < 10) ? '0' + minutes : minutes;
+            seconds = (seconds < 10) ? '0' + seconds : seconds;
+        
+            var timeString = hours + ':' + minutes + ':' + seconds;
+            
+            document.getElementById('time').innerText = timeString;
+        }
+        
+        // Update the clock every second
+        setInterval(updateClock, 1000);
+        
+        // Initial call to display the time immediately
+        updateClock();
+        
+    </script>
+</body>
+</html>
